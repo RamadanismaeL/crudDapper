@@ -1,4 +1,4 @@
-using crudDapper.src.Repositories.Data;
+using crudDapper.src.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

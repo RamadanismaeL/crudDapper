@@ -6,7 +6,7 @@ using crudDapper.src.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace crudDapper.src.Repositories.Data.Maps
+namespace crudDapper.src.Data.Maps
 {
     public class UsuarioMap : IEntityTypeConfiguration<UsuarioModel>
     {

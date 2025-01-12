@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("crudDapper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b237ce212b77fd71b68393baa80d8c7dd283b51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28c1d9dc3af1a17bea3a9acf93d6e418c7328d89")]
 [assembly: System.Reflection.AssemblyProductAttribute("crudDapper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("crudDapper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

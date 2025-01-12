@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using crudDapper.src.Models;
-using crudDapper.src.Repositories.Data.Maps;
+using crudDapper.src.Data.Maps;
 using Microsoft.EntityFrameworkCore;
 
-namespace crudDapper.src.Repositories.Data
+namespace crudDapper.src.Data
 {
     public class CrudBapperdb : DbContext
     {
