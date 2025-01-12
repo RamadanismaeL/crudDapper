@@ -20,7 +20,7 @@ The base URL for the API is: http://localhost:5162/api/usuario/
 Each endpoint requires specific parameters in the request body (for POST, PUT, and DELETE), or query parameters (for GET), and returns relevant data or a success/failure status.
 This documentation provides a detailed description of each endpoint, including request examples and expected responses. You can use it to interact with your API via tools like Postman or any HTTP client.
 </br><hr></br>
-
+## Exemples
 # Create
 <pre><code>http://localhost:5162/api/usuario/create</code></pre>
 <p>Creates a new user in the database. This endpoint requires the new user's details to be provided in the request body. Upon creation, a new user will be added, and a success status will be returned.</p>
