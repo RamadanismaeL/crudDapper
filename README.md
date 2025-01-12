@@ -21,7 +21,7 @@ Each endpoint requires specific parameters in the request body (for POST, PUT, a
 This documentation provides a detailed description of each endpoint, including request examples and expected responses. You can use it to interact with your API via tools like Postman or any HTTP client.
 </br><hr></br>
 ## Exemples
-# Create
+>> # Create
 <pre><code>http://localhost:5162/api/usuario/create</code></pre>
 <p>Creates a new user in the database. This endpoint requires the new user's details to be provided in the request body. Upon creation, a new user will be added, and a success status will be returned.</p>
 <h3>Body</h3>
@@ -38,12 +38,12 @@ This documentation provides a detailed description of each endpoint, including r
 </code></pre>
 </br><hr></br>
 
-# ReadAll
+>> # ReadAll
 <pre><code>http://localhost:5162/api/usuario/readAll</code></pre>
 <p>Fetches all the users registered in the database. This endpoint returns a list of all users, including information like name, email, position, salary, etc.</p>
 </br><hr></br>
 
-# Update
+>> # Update
 <pre><code>http://localhost:5162/api/usuario/update</code></pre>
 <p>Updates the details of an existing user based on the provided ID. This endpoint allows you to modify information such as name, email, position, salary, etc. The new user details should be sent in the request body along with the user's ID.</p>
 <h3>Body</h3>
@@ -59,7 +59,7 @@ This documentation provides a detailed description of each endpoint, including r
 </code></pre>
 </br><hr></br>
 
-# Delete
+>> # Delete
 <pre><code>http://localhost:5162/api/usuario/delete</code></pre>
 <p>Deletes an existing user from the database based on the provided ID. This endpoint requires the user's ID to be sent in the request body.</p>
 <h3>Body</h3>
@@ -70,7 +70,7 @@ This documentation provides a detailed description of each endpoint, including r
 </code></pre>
 </br><hr></br>
 
-# FindById
+>> # FindById
 <pre><code>http://localhost:5162/api/usuario/findById</code></pre>
 <p>Fetches a specific user by the provided ID. This endpoint returns the full details of the user corresponding to the given ID.</p>
 <pre><code>
