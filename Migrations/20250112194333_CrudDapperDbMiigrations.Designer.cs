@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using crudDapper.src.Repositories.Data;
+using crudDapper.src.Data;
 
 #nullable disable
 
 namespace crudDapper.Migrations
 {
     [DbContext(typeof(CrudBapperdb))]
-    [Migration("20250112161540_CrudDapperMigrations")]
-    partial class CrudDapperMigrations
+    [Migration("20250112194333_CrudDapperDbMiigrations")]
+    partial class CrudDapperDbMiigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

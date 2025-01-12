@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace crudDapper.src.Controllers
 {
     [ApiController]
-    public class UsuarioController(UsuarioService usuarioService) : ControllerBase, IUsuarioController
+    public class UsuarioController(IUsuarioServices usuarioService) : ControllerBase, IUsuarioController
     {
         private readonly IUsuarioServices _usuarioServices = usuarioService;
 
         [HttpPost]
         [Route("/api/usuario/create")]
-        public async Task<IActionResult> Create(UsuarioCriarDto usuarioCriarDto)
+        public async Task<ActionResult> Create(UsuarioCriarDto usuarioCriarDto)
         {
             if(!ModelState.IsValid) return BadRequest(ModelState);
             var usuario = await _usuarioServices.Create(usuarioCriarDto);
@@ -22,7 +22,7 @@ namespace crudDapper.src.Controllers
 
         [HttpGet]
         [Route("/api/usuario/readAll")]
-        public async Task<IActionResult> ReadAll()
+        public async Task<ActionResult> ReadAll()
         {
             var usuario = await _usuarioServices.ReadAll();
             if(usuario.Status == false) return NotFound(usuario);
@@ -31,30 +31,30 @@ namespace crudDapper.src.Controllers
 
         [HttpPut]
         [Route("/api/usuario/update")]
-        public async Task<IActionResult> Update(int id, UsuarioEditarDto usuarioEditarDto)
+        public async Task<ActionResult> Update(UsuarioEditarDto usuarioEditarDto)
         {
             if(!ModelState.IsValid) return BadRequest(ModelState);
-            var usuario = await _usuarioServices.Update(id, usuarioEditarDto);
+            var usuario = await _usuarioServices.Update(usuarioEditarDto);
             if(usuario.Status == false) return BadRequest(usuario);
             return Ok(usuario);
         }
 
-        [HttpDelete("{id}")]
-        [Route("/api/usuario/delete/id{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete]
+        [Route("/api/usuario/delete")]
+        public async Task<ActionResult> Delete(UsuarioDeleteDto usuarioDeleteDto)
         {
             if(!ModelState.IsValid) return BadRequest(ModelState);
-            var usuario = await _usuarioServices.Delete(id);
+            var usuario = await _usuarioServices.Delete(usuarioDeleteDto);
             if(usuario.Status == false) return BadRequest(usuario);
             return Ok(usuario);
         }
 
-        [HttpGet("{id}")]
-        [Route("/api/usuario/findById/{id}")]
-        public async Task<IActionResult> FindById(int id)
+        [HttpGet]
+        [Route("/api/usuario/findById")]
+        public async Task<ActionResult> FindById(UsuarioFindID usuarioFindID)
         {
             if(!ModelState.IsValid) return BadRequest(ModelState);
-            var usuario = await _usuarioServices.FindById(id);
+            var usuario = await _usuarioServices.FindById(usuarioFindID);
             if(usuario.Status == false) return NotFound(usuario);
             return Ok(usuario);
         }

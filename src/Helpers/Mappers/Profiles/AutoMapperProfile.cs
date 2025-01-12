@@ -12,7 +12,11 @@ namespace crudDapper.src.Helpers.Mappers.Profiles
     {
         public AutoMapperProfile()
         {
+            CreateMap<UsuarioCriarDto, UsuarioModel>();
             CreateMap<UsuarioModel, UsuarioListarDto>();
+            CreateMap<UsuarioEditarDto, UsuarioModel>();
+            CreateMap<UsuarioDeleteDto, UsuarioModel>();
+            CreateMap<UsuarioFindID, UsuarioModel>();
         }
     }
 }

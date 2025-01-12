@@ -1,4 +1,7 @@
 using crudDapper.src.Data;
+using crudDapper.src.Helpers.Mappers.Profiles;
+using crudDapper.src.Interfaces;
+using crudDapper.src.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +20,10 @@ string? connect = $"server={server}; port={port}; database=dbCrudBapper; user={u
 
 builder.Services.AddDbContextPool<CrudBapperdb>(ram => ram.UseMySql(connect, ServerVersion.AutoDetect(connect)));
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<IUsuarioServices, UsuarioService>();
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -25,5 +32,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthorization();
 app.MapControllers();
 app.Run();

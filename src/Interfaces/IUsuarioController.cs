@@ -9,10 +9,10 @@ namespace crudDapper.src.Interfaces
 {
     public interface IUsuarioController
     {
-        Task<IActionResult> Create(UsuarioCriarDto usuarioCriarDto);
-        Task<IActionResult> ReadAll();
-        Task<IActionResult> Update(int id, UsuarioEditarDto usuarioEditarDto);
-        Task<IActionResult> Delete(int id);
-        Task<IActionResult> FindById(int id);
+        Task<ActionResult> Create(UsuarioCriarDto usuarioCriarDto);
+        Task<ActionResult> ReadAll();
+        Task<ActionResult> Update(UsuarioEditarDto usuarioEditarDto);
+        Task<ActionResult> Delete(UsuarioDeleteDto usuarioDeleteDto);
+        Task<ActionResult> FindById(UsuarioFindID usuarioFindID);
     }
 }

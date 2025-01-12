@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace crudDapper.Migrations
 {
     /// <inheritdoc />
-    public partial class CrudDapperMigrations : Migration
+    public partial class CrudDapperDbMiigrations : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
