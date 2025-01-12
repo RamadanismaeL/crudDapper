@@ -9,8 +9,8 @@ namespace crudDapper.src.Interfaces
 {
     public interface IUsuarioServices
     {
-        Task<ResponseModel<List<UsuarioListarDto>>> Create(UsuarioCriarDto usuarioCriarDto);
-        Task<ResponseModel<UsuarioListarDto>> ReadAll();
+        Task<ResponseModel<UsuarioListarDto>> Create(UsuarioCriarDto usuarioCriarDto);
+        Task<ResponseModel<List<UsuarioListarDto>>> ReadAll();
         Task<ResponseModel<UsuarioListarDto>> Update(UsuarioEditarDto usuarioEditarDto);
         Task<ResponseModel<bool>> Delete(int id);
         Task<ResponseModel<UsuarioListarDto>> FindById(int id);

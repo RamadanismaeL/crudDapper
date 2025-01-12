@@ -10,7 +10,17 @@ namespace crudDapper.src.Services
 {
     public class UsuarioService : IUsuarioServices
     {
-        public Task<ResponseModel<List<UsuarioListarDto>>> Create(UsuarioCriarDto usuarioCriarDto)
+        public Task<ResponseModel<UsuarioListarDto>> Create(UsuarioCriarDto usuarioCriarDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ResponseModel<List<UsuarioListarDto>>> ReadAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ResponseModel<UsuarioListarDto>> Update(UsuarioEditarDto usuarioEditarDto)
         {
             throw new NotImplementedException();
         }
@@ -21,16 +31,6 @@ namespace crudDapper.src.Services
         }
 
         public Task<ResponseModel<UsuarioListarDto>> FindById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseModel<UsuarioListarDto>> ReadAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseModel<UsuarioListarDto>> Update(UsuarioEditarDto usuarioEditarDto)
         {
             throw new NotImplementedException();
         }
