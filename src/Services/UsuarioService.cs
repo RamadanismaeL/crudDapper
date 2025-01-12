@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using crudDapper.src.Dtos;
 using crudDapper.src.Interfaces;
@@ -67,19 +63,108 @@ namespace crudDapper.src.Services
             return response;
         }
 
-        public Task<ResponseModel<UsuarioListarDto>> Update(UsuarioEditarDto usuarioEditarDto)
+        public async Task<ResponseModel<UsuarioListarDto>> Update(int id, UsuarioEditarDto usuarioEditarDto)
         {
-            throw new NotImplementedException();
+            var response = new ResponseModel<UsuarioListarDto>();
+            try
+            {
+                if(id <= 0)
+                {
+                    response.Mensagem = "ID inválido.";
+                    response.Status = false;
+                    return response;
+                }
+
+                var usuarioExist = await _crudBapperdb.Usuarios.FindAsync(id);
+                if(usuarioExist == null)
+                {
+                    response.Mensagem = "Usuário não encontrado.";
+                    response.Status = false;
+                    return response;
+                }
+
+                var usuarioMapeado = _mapper.Map(usuarioEditarDto, usuarioExist);
+                _crudBapperdb.Usuarios.Update(usuarioMapeado);
+                await _crudBapperdb.SaveChangesAsync();
+
+                var usuarioDto = _mapper.Map<UsuarioListarDto>(usuarioMapeado);
+                response.Dados = usuarioDto;
+                response.Mensagem = "Usuário atualizado com sucesso!";
+                response.Status = true;
+            }
+            catch (Exception error)
+            {
+                response.Mensagem = $"Ocorreu um erro ao atualizar o usuário: {error.Message}";
+                response.Status = false;
+            }
+            return response;
         }
 
-        public Task<ResponseModel<bool>> Delete(int id)
+        public async Task<ResponseModel<UsuarioListarDto>> Delete(int id)
         {
-            throw new NotImplementedException();
+            var response = new ResponseModel<UsuarioListarDto>();
+            try
+            {
+                if(id <= 0)
+                {
+                    response.Mensagem = "ID inválido.";
+                    response.Status = false;
+                    return response;
+                }
+
+                var usuarioExist = await _crudBapperdb.Usuarios.FindAsync(id);
+                if(usuarioExist == null)
+                {
+                    response.Mensagem = "Usuário não encontrado.";
+                    response.Status = false;
+                    return response;
+                }
+
+                _crudBapperdb.Usuarios.Remove(usuarioExist);
+                await _crudBapperdb.SaveChangesAsync();
+
+                response.Mensagem = "Usuário deletado com sucesso!";
+                response.Status = true;
+            }
+            catch (Exception error)
+            {
+                response.Mensagem = $"Ocorreu um erro ao deletar o usuário: {error.Message}";
+                response.Status = false;
+            }
+            return response;
         }
 
-        public Task<ResponseModel<UsuarioListarDto>> FindById(int id)
+        public async Task<ResponseModel<UsuarioListarDto>> FindById(int id)
         {
-            throw new NotImplementedException();
+            var response = new ResponseModel<UsuarioListarDto>();
+            try
+            {
+                if(id <= 0)
+                {
+                    response.Mensagem = "ID inválido.";
+                    response.Status = false;
+                    return response;
+                }
+
+                var usuarioExist = await _crudBapperdb.Usuarios.FindAsync(id);
+                if(usuarioExist == null)
+                {
+                    response.Mensagem = "Usuário não encontrado.";
+                    response.Status = false;
+                    return response;
+                }
+
+                var usuarioDto = _mapper.Map<UsuarioListarDto>(usuarioExist);
+                response.Dados = usuarioDto;
+                response.Mensagem = "Usuário localizado com sucesso!";
+                response.Status = true;
+            }
+            catch (Exception error)
+            {
+                response.Mensagem = $"Ocorreu um erro ao localizar o usuário por ID: {error.Message}";
+                response.Status = false;
+            }
+            return response;
         }
     }
 }
