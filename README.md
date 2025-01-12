@@ -78,4 +78,3 @@ This documentation provides a detailed description of each endpoint, including r
     "id" : 3
   }
 </code></pre>
-</br><hr></br>
