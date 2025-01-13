@@ -24,6 +24,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IUsuarioServices, UsuarioService>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("usuariosApp", builder => {
+        builder.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -31,6 +39,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseCors("usuariosApp");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
