@@ -1,5 +1,6 @@
 # crudDapper - docs
 dotnet verion : 9.0.101
+</br>
 Hello Friend!
 
 This API provides endpoints for managing users in the system. It allows for creating, reading, updating, and deleting user records. Each user has a set of attributes such as NomeCompleto (Full Name), Email, Cargo (Position), Salario (Salary), CPF (Brazilian Identification Number), and Situacao (Status). The API is designed to be simple and intuitive, supporting the basic CRUD (Create, Read, Update, Delete) operations.
